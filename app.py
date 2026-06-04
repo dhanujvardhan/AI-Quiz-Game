@@ -5,6 +5,7 @@ import random
 import time
 import base64
 import os
+import json
 import pandas as pd
 import matplotlib.pyplot as plt
 from streamlit_autorefresh import st_autorefresh
@@ -17,13 +18,18 @@ from firebase_admin import firestore
 # ---------------- GEMINI API ----------------
 
 
+
 load_dotenv()
 # ---------------- FIREBASE SETUP ----------------
 
 if not firebase_admin._apps:
 
+    firebase_creds = json.loads(
+        os.getenv("FIREBASE_CREDENTIALS")
+    )
+
     cred = credentials.Certificate(
-     "firebase_key.json"
+        firebase_creds
     )
 
     firebase_admin.initialize_app(cred)
