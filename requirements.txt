@@ -1,7 +1,7 @@
-streamlit
-firebase-admin
-google-generativeai
-python-dotenv
-pandas
-matplotlib
-streamlit-autorefresh
+streamlit==1.37.1
+firebase-admin==6.5.0
+google-generativeai==0.7.2
+python-dotenv==1.0.1
+pandas==2.2.2
+matplotlib==3.8.4
+streamlit-autorefresh==1.0.1
