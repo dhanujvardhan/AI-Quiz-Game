@@ -42,6 +42,7 @@ The application generates intelligent quiz questions, adapts difficulty based on
 ---
 📸 Screenshots
 🏠 Category Selection
+
 <img width="747" height="467" alt="image" src="https://github.com/user-attachments/assets/a0b738f0-ddc4-42a4-8b9c-2863dbe19dd8" />
 
 
@@ -49,6 +50,7 @@ The application generates intelligent quiz questions, adapts difficulty based on
 
 
 ❓ Quiz Interface
+
 <img width="750" height="690" alt="image" src="https://github.com/user-attachments/assets/2c34e5d5-03da-4d90-9972-350216f13dca" />
 
 
@@ -56,18 +58,21 @@ The application generates intelligent quiz questions, adapts difficulty based on
 
 
 📊 Performance Analytics
+
 <img width="600" height="470" alt="image" src="https://github.com/user-attachments/assets/f795bd5c-66ec-4350-b892-ff41ef54b69d" />
 
 
 
 
 🏆 Game Over Screen
+
 <img width="515" height="697" alt="image" src="https://github.com/user-attachments/assets/5d62b4f8-f454-4bfb-af48-aee87b8a7db7" />
 
 
 
 
 🥇 Leaderboard
+
 <img width="452" height="238" alt="image" src="https://github.com/user-attachments/assets/d2d117fe-808f-469c-94a5-d78ba8797b05" />
 
 
