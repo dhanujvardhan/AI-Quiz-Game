@@ -8,7 +8,7 @@ import os
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
-from streamlit_autorefresh import st_autorefresh
+# from streamlit_autorefresh import st_autorefresh
 import google.generativeai as genai
 from dotenv import load_dotenv
 import firebase_admin
@@ -351,8 +351,8 @@ else:
 MAX_QUESTIONS = 10
 
 
-if not st.session_state.game_over:
-    st_autorefresh(interval=1000, key="timer_refresh")
+# if not st.session_state.game_over:
+#     st_autorefresh(interval=1000, key="timer_refresh")
 # ---------------- TITLE ----------------
 st.markdown(
     '<div class="title">🧠 AI Quiz Game</div>',
@@ -395,6 +395,8 @@ st.markdown(
 # =========================================================
 # ================== GAME OVER SCREEN =====================
 # =========================================================
+
+
 
 if total_questions >= MAX_QUESTIONS:
     st.session_state.game_over = True
@@ -550,19 +552,19 @@ if st.session_state.game_over:
 
     # ---------------- SAVE SCORE ----------------
    
-if st.button("💾 Save Score"):
+    if st.button("💾 Save Score"):
 
-    if player_name.strip():
+        if player_name.strip():
 
-        db.collection("leaderboard").add({
-            "name": player_name,
-            "score": st.session_state.score
-        })
+            db.collection("leaderboard").add({
+                "name": player_name,
+                "score": st.session_state.score
+            })
 
-        st.success("🏆 Score Saved Successfully!")
+            st.success("🏆 Score Saved Successfully!")
 
-    else:
-        st.error("Enter Name First")
+        else:
+            st.error("Enter Name First")
 
     # ---------------- SHOW LEADERBOARD ----------------
     leaderboard_ref = db.collection("leaderboard") \
@@ -620,7 +622,8 @@ if st.button("💾 Save Score"):
 # =========================================================
 # ================== QUIZ SECTION ==========================
 # =========================================================
-
+if st.session_state.game_over:
+    st.stop()
 # ---------------- FILTER QUESTIONS ----------------
 filtered_questions = [
     q for q in questions
