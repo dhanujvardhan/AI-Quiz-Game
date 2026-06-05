@@ -549,16 +549,20 @@ if st.session_state.game_over:
     )
 
     # ---------------- SAVE SCORE ----------------
-    if st.button("💾 Save Score"):
+   
+if st.button("💾 Save Score"):
 
-        if player_name.strip() != "":
-                
-            db.collection("leaderboard").add({
-                "name": player_name,
-                "score": st.session_state.score
-            })
+    if player_name.strip():
 
-    st.success("🏆 Score Saved Successfully!")
+        db.collection("leaderboard").add({
+            "name": player_name,
+            "score": st.session_state.score
+        })
+
+        st.success("🏆 Score Saved Successfully!")
+
+    else:
+        st.error("Enter Name First")
 
     # ---------------- SHOW LEADERBOARD ----------------
     leaderboard_ref = db.collection("leaderboard") \
@@ -668,11 +672,11 @@ if (
 # ---------------- FINAL QUESTION ----------------
 question = st.session_state.current_question
 
-if question["question"] != st.session_state.last_question:
+# if question["question"] != st.session_state.last_question:
 
-    st.session_state.start_time = time.time()
+#     st.session_state.start_time = time.time()
 
-    st.session_state.last_question = question["question"]
+#     st.session_state.last_question = question["question"]
 
 # ---------------- QUESTION BOX ----------------
 st.markdown(
@@ -889,9 +893,9 @@ if st.button("🚀 Submit Answer"):
 
     st.session_state.current_question = next_question
 
-    st.session_state.asked_questions.append(
-        next_question["question"]
-    )
+    # st.session_state.asked_questions.append(
+    #     next_question["question"]
+    # )
 
     # ---------------- RESET TIMER ----------------
     st.session_state.start_time = time.time()
