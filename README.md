@@ -202,7 +202,7 @@ streamlit run app.py
 ## 🌐 Live Demo
 
 ```text
-(https://ai-quiz-game-mmwb.onrender.com/)
+https://ai-quiz-game-mmwb.onrender.com/
 ```
 
 ---
