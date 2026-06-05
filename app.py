@@ -8,7 +8,7 @@ import os
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
-# from streamlit_autorefresh import st_autorefresh
+from streamlit_autorefresh import st_autorefresh
 import google.generativeai as genai
 from dotenv import load_dotenv
 import firebase_admin
@@ -351,8 +351,8 @@ else:
 MAX_QUESTIONS = 10
 
 
-# if not st.session_state.game_over:
-#     st_autorefresh(interval=1000, key="timer_refresh")
+if not st.session_state.game_over:
+    st_autorefresh(interval=1000, key="timer_refresh")
 # ---------------- TITLE ----------------
 st.markdown(
     '<div class="title">🧠 AI Quiz Game</div>',
@@ -567,6 +567,8 @@ if st.session_state.game_over:
             st.error("Enter Name First")
 
     # ---------------- SHOW LEADERBOARD ----------------
+    st.write("DEBUG START")
+ 
     leaderboard_ref = db.collection("leaderboard") \
         .order_by("score", direction=firestore.Query.DESCENDING) \
         .limit(10)
@@ -584,18 +586,32 @@ if st.session_state.game_over:
 
     rank = 1
 
-    for player in leaderboard:
+
+    players = list(leaderboard)
+
+    st.write("Total Records:", len(players))
+
+
+    for player in players:
 
         player_data = player.to_dict()
 
-        st.markdown(
-            f"""
-            ✅ #{rank} — {player_data['name']} :
-            {player_data['score']} Points
-            """
+        st.write(
+            player_data["name"],
+            player_data["score"]
         )
+    # for player in leaderboard:
 
-        rank += 1
+    #     player_data = player.to_dict()
+
+    #     st.markdown(
+    #         f"""
+    #         ✅ #{rank} — {player_data['name']} :
+    #         {player_data['score']} Points
+    #         """
+    #     )
+
+    #     rank += 1
 
     # ---------------- RESTART BUTTON ----------------
     if st.button("🔄 Restart Game"):
