@@ -201,10 +201,8 @@ streamlit run app.py
 
 ## 🌐 Live Demo
 
-Add your Render deployment link here:
-
 ```text
-https://your-render-app.onrender.com
+(https://ai-quiz-game-mmwb.onrender.com/)
 ```
 
 ---
